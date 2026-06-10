@@ -1,0 +1,119 @@
+<ExpenseScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "10dp"
+        spacing: "5dp"
+
+        MDRaisedButton:
+            text: "< Back"
+            size_hint_y: None
+            height: "40dp"
+            on_release: root.go_back()
+
+        MDLabel:
+            id: date_label
+            text: "All Dates"
+            size_hint_y: None
+            height: "30dp"
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: "45dp"
+            spacing: "5dp"
+
+            MDRaisedButton:
+                text: "ALL"
+                on_release:
+                    root.set_filter_all()
+
+            MDRaisedButton:
+                text: "DATE"
+                on_release:
+                    root.set_filter_selected_date()
+
+            MDRaisedButton:
+                text: "MONTH"
+                on_release:
+                    root.set_filter_this_month()
+
+            MDRaisedButton:
+                text: "RANGE"
+                on_release:
+                    root.show_custom_range_popup()
+
+        MDLabel:
+            text: "Expenses"
+            size_hint_y: None
+            height: "30dp"
+
+        MDCard:
+            size_hint_y: None
+            height: "40dp"
+
+            MDGridLayout:
+                cols: 5
+
+                MDLabel:
+                    text: "#"
+
+                MDLabel:
+                    text: "Type"
+
+                MDLabel:
+                    text: "Amount"
+
+                MDLabel:
+                    text: "Note"
+
+                MDLabel:
+                    text: "Action"
+
+        ScrollView:
+
+            MDGridLayout:
+                id: expense_container
+                cols: 1
+                spacing: "5dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+        MDCard:
+            size_hint_y: None
+            height: "55dp"
+
+            MDGridLayout:
+                cols: 5
+                spacing: "3dp"
+
+                MDRaisedButton:
+                    text: "Home"
+                    on_release:
+                        app.root.current = "home"
+
+                MDRaisedButton:
+                    text: "Customer"
+                    on_release:
+                        app.root.current = "customer_ledger"
+
+                MDRaisedButton:
+                    text: "Expenses"
+                    md_bg_color: "#424242" 
+                    on_release:
+                        app.root.current = "expense"
+
+                MDRaisedButton:
+                    text: "Report"
+                    on_release:
+                        app.root.current = "report"
+
+                MDRaisedButton:
+                    text: "Settings"
+                    on_release:
+                        app.root.current = "settings"
+
+    MDFloatingActionButton:
+        icon: "plus"
+        pos_hint: {"right": 0.98, "y": 0.02}
+        on_release:
+            root.show_add_expense()

@@ -1,0 +1,148 @@
+<CustomerLedgerScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "8dp"
+        spacing: "6dp"
+
+        MDRaisedButton:
+            text: "< Back"
+            size_hint_y: None
+            height: "36dp"
+            on_release:
+                root.go_back()
+
+        MDLabel:
+            text: "Customer Ledger"
+            halign: "center"
+            size_hint_y: None
+            height: "24dp"
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: "50dp"
+            spacing: "5dp"
+
+            MDTextField:
+                id: search_field
+                hint_text: "Search Customer"
+                size_hint_x: 0.65
+
+            MDRaisedButton:
+                text: "GO"
+                size_hint_x: 0.175
+                on_release:
+                    root.search_customer()
+
+            MDRaisedButton:
+                text: "CLR"
+                size_hint_x: 0.175
+                on_release:
+                    root.clear_search()
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: "35dp"
+            spacing: "5dp"
+
+            MDRaisedButton:
+                text: "ALL"
+                on_release:
+                    root.show_all()
+
+            MDRaisedButton:
+                text: "PENDING"
+                on_release:
+                    root.show_pending()
+
+            MDRaisedButton:
+                text: "PAID"
+                on_release:
+                    root.show_paid()
+
+        MDCard:
+            size_hint_y: None
+            height: "110dp"
+            padding: "8dp"
+
+            MDBoxLayout:
+                orientation: "vertical"
+
+                MDLabel:
+                    id: summary_label
+                    text: "Summary"
+                    halign: "left"
+
+        MDCard:
+            size_hint_y: None
+            height: "40dp"
+
+            MDGridLayout:
+                cols: 6
+
+                MDLabel:
+                    text: "Name"
+                    halign: "center"
+
+                MDLabel:
+                    text: "Date"
+                    halign: "center"
+
+                MDLabel:
+                    text: "Min"
+                    halign: "center"
+
+                MDLabel:
+                    text: "Amt"
+                    halign: "center"
+
+                MDLabel:
+                    text: "Paid"
+                    halign: "center"
+
+                MDLabel:
+                    text: "Bal"
+                    halign: "center"
+
+        ScrollView:
+
+            MDGridLayout:
+                id: ledger_container
+                cols: 1
+                spacing: "3dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+        MDCard:
+            size_hint_y: None
+            height: "55dp"
+
+            MDGridLayout:
+                cols: 5
+                spacing: "3dp"
+
+                MDRaisedButton:
+                    text: "Home"
+                    on_release:
+                        app.root.current = "home"
+
+                MDRaisedButton:
+                    text: "Customer"
+                    md_bg_color: "#424242"
+                    on_release:
+                        app.root.current = "customer_ledger"
+
+                MDRaisedButton:
+                    text: "Expenses"
+                    on_release:
+                        app.root.current = "expense"
+
+                MDRaisedButton:
+                    text: "Report"
+                    on_release:
+                        app.root.current = "report"
+
+                MDRaisedButton:
+                    text: "Settings"
+                    on_release:
+                        app.root.current = "settings"

@@ -1,0 +1,123 @@
+<HomeScreen>:
+    md_bg_color: "#0A192F"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "5dp"
+        spacing: "5dp"
+
+        # Header
+        MDBoxLayout:
+            size_hint_y: None
+            height: "40dp"
+
+            MDIcon:
+                icon: "water"
+                theme_text_color: "Custom"
+                text_color: 0.2, 0.6, 1, 1
+
+        # Dashboard
+        MDBoxLayout:
+            size_hint_y: None
+            height: "75dp"
+            spacing: "8dp"
+
+            MDCard:
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: "8dp"
+
+                    MDLabel:
+                        text: "Pending"
+                        halign: "center"
+
+                    MDLabel:
+                        id: pending_label
+                        text: "₹ 0"
+                        halign: "center"
+
+            MDCard:
+
+                MDBoxLayout:
+                    orientation: "vertical"
+                    padding: "8dp"
+
+                    MDLabel:
+                        text: "Net Profit"
+                        halign: "center"
+
+                    MDLabel:
+                        id: profit_label
+                        text: "₹ 0"
+                        halign: "center"
+
+        # Calendar Area
+        MDCard:
+            size_hint_y: 1
+            padding: "5dp"
+            radius: [15, 15, 0, 0]
+            md_bg_color: "#122640"
+
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "5dp"
+
+                MDBoxLayout:
+                    size_hint_y: None
+                    height: "40dp"
+
+                    MDIconButton:
+                        icon: "chevron-left"
+                        on_release:
+                            root.change_month(-1)
+
+                    MDLabel:
+                        id: month_label
+                        text: "June 2026"
+                        halign: "center"
+
+                    MDIconButton:
+                        icon: "chevron-right"
+                        on_release:
+                            root.change_month(1)
+
+                MDGridLayout:
+                    id: calendar_grid
+                    cols: 7
+                    spacing: "2dp"
+                    padding: "2dp"
+                    size_hint_y: 1
+
+        # Bottom Navigation
+        MDCard:
+            size_hint_y: None
+            height: "55dp"
+
+            MDGridLayout:
+                cols: 5
+                spacing: "3dp"
+
+                MDRaisedButton:
+                    text: "Home"
+                    md_bg_color: "#424242"
+
+                MDRaisedButton:
+                    text: "Customer"
+                    on_release:
+                        app.root.current = "customer_ledger"
+
+                MDRaisedButton:
+                    text: "Expenses"
+                    on_release:
+                        app.root.current = "expense"
+
+                MDRaisedButton:
+                    text: "Report"
+                    on_release:
+                        app.root.current = "report"
+
+                MDRaisedButton:
+                    text: "Settings"
+                    on_release:
+                        app.root.current = "settings"

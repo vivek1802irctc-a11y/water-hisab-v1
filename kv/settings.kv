@@ -1,0 +1,143 @@
+<SettingsScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "10dp"
+        spacing: "10dp"
+
+        MDLabel:
+            text: "Settings"
+            halign: "center"
+            bold: True
+            size_hint_y: None
+            height: "35dp"
+
+        MDCard:
+            size_hint_y: None
+            height: "120dp"
+            padding: "10dp"
+            radius: [15]
+
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "10dp"
+
+                MDLabel:
+                    text: "Default Water Rate"
+
+                MDBoxLayout:
+                    spacing: "10dp"
+
+                    MDTextField:
+                        id: rate_input
+                        hint_text: "Rate Per Hour"
+
+                    MDRaisedButton:
+                        text: "Save"
+                        size_hint_x: None
+                        width: "90dp"
+                        on_release:
+                            root.save_rate()
+
+        MDCard:
+            size_hint_y: None
+            height: "80dp"
+            padding: "10dp"
+            radius: [15]
+
+            MDBoxLayout:
+                orientation: "vertical"
+
+                MDLabel:
+                    text: "Language"
+
+                MDLabel:
+                    text: "Hindi"
+                    theme_text_color: "Secondary"
+
+        MDBoxLayout:
+            size_hint_y: None
+            height: "45dp"
+            spacing: "10dp"
+
+            MDRaisedButton:
+                text: "Export Backup"
+                on_release:
+                    root.export_backup()
+
+            MDRaisedButton:
+                text: "Import Backup"
+                on_release:
+                    root.import_backup()
+
+        Widget:
+
+        MDCard:
+            size_hint_y: None
+            height: "180dp"
+            padding: "10dp"
+            radius: [15]
+
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "5dp"
+
+                MDLabel:
+                    text: "About App"
+                    bold: True
+
+                MDLabel:
+                    text: "Water Hisab v1.0"
+
+                MDLabel:
+                    text: "Designed & Created By"
+
+                MDLabel:
+                    text: "Vivek Sharma"
+
+                MDLabel:
+                    text: "Built With" 
+
+                MDLabel:
+                    text: "Python ● KivyMD ● SQLite"
+
+                MDLabel:
+                    text: "Special Thanks"
+
+                MDLabel:
+                    text: "ChatGPT"
+
+                MDLabel:
+                    text: "© 2026"
+
+        MDCard:
+            size_hint_y: None
+            height: "55dp"
+
+            MDGridLayout:
+                cols: 5
+                spacing: "3dp"
+
+                MDRaisedButton:
+                    text: "Home"
+                    on_release:
+                        app.root.current = "home"
+
+                MDRaisedButton:
+                    text: "Customer"
+                    on_release:
+                        app.root.current = "customer_ledger"
+
+                MDRaisedButton:
+                    text: "Expenses"
+                    on_release:
+                        app.root.current = "expense"
+
+                MDRaisedButton:
+                    text: "Report"
+                    on_release:
+                        app.root.current = "report"
+
+                MDRaisedButton:
+                    text: "Settings"
+                    md_bg_color: "#424242"

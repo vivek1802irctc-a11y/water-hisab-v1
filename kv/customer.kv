@@ -1,0 +1,67 @@
+<CustomerScreen>
+
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: "10dp"
+        spacing: "5dp"
+
+        MDRaisedButton:
+            text: "< Back"
+            size_hint_y: None
+            height: "40dp"
+            on_release: root.go_back()
+
+        MDLabel:
+            id: date_label
+            text: "Date : --"
+            size_hint_y: None
+            height: "30dp"
+            halign: "left"
+
+        MDLabel:
+            text: "Customers Record"
+            size_hint_y: None
+            height: "25dp"
+            halign: "left"
+
+        MDCard:
+            size_hint_y: None
+            height: "40dp"
+
+            MDGridLayout:
+                cols: 7
+
+                MDLabel:
+                    text: "#"
+
+                MDLabel:
+                    text: "Name"
+
+                MDLabel:
+                    text: "Min"
+
+                MDLabel:
+                    text: "Amt"
+
+                MDLabel:
+                    text: "Paid"
+
+                MDLabel:
+                    text: "Bal"
+                
+                MDLabel:
+                    text: "⁝"
+
+        ScrollView:
+
+            MDGridLayout:
+                id: records_container
+                cols: 1
+                spacing: "5dp"
+                size_hint_y: None
+                height: self.minimum_height
+
+    MDFloatingActionButton:
+        icon: "plus"
+        pos_hint: {"right": 0.98, "y": 0.02}
+        on_release: root.show_add_customer()
