@@ -8,7 +8,7 @@ package.domain = org.vivek
 
 source.dir = .
 
-source.include_exts = py,kv,db,png,jpg,jpeg
+source.include_exts = py,kv,png,jpg,jpeg
 
 version = 1.0
 
