@@ -10,15 +10,16 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - name: Build with Buildozer
-        uses: ArtemSBulgakov/buildozer-action@v1
+      - name: Build APK
+        uses: digreatbrian/buildozer-action@v2
         with:
-          command: buildozer android debug
+          buildozer-cmd: buildozer android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: WaterHisab-APK
-          path: ./**/*.apk
+          path: bin/*.apk
