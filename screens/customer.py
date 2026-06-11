@@ -11,7 +11,7 @@ from kivymd.uix.textfield import MDTextField
 from kivymd.uix.label import MDLabel
 from kivymd.uix.gridlayout import MDGridLayout
 from functools import partial   
-from kivymd.uix.pickers import MDTimePicker
+# from kivymd.uix.pickers import MDTimePicker
 
 class CustomerForm(MDBoxLayout):
 
@@ -55,19 +55,19 @@ class CustomerForm(MDBoxLayout):
         self.add_widget(self.end_time)
         self.add_widget(self.rate)
 
-    def open_start_picker(self, instance, value):
+    # def open_start_picker(self, instance, value):
 
-        print("START CLICKED")
+     #   print("START CLICKED")
 
-        if value:
+      #  if value:
 
-            time_dialog = MDTimePicker()
+       #     time_dialog = MDTimePicker()
 
-            time_dialog.bind(
-                time=self.set_start_time
-            )
+        #    time_dialog.bind(
+         #       time=self.set_start_time
+          #  )
 
-            time_dialog.open()
+           # time_dialog.open()
 
 
     def set_start_time(self, instance, time_value):
@@ -91,17 +91,17 @@ class CustomerForm(MDBoxLayout):
         )
 
 
-    def open_end_picker(self, instance, value):
+    # def open_end_picker(self, instance, value):
 
-        if value:
+     #   if value:
 
-            time_dialog = MDTimePicker()
+      #      time_dialog = MDTimePicker()
 
-            time_dialog.bind(
-                time=self.set_end_time
-            )
+       #     time_dialog.bind(
+        #        time=self.set_end_time
+         #   )
 
-            time_dialog.open()
+          #  time_dialog.open()
 
 
     def set_end_time(self, instance, time_value):
