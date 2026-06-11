@@ -5,12 +5,6 @@
         padding: "10dp"
         spacing: "5dp"
 
-        MDRaisedButton:
-            text: "< Back"
-            size_hint_y: None
-            height: "40dp"
-            on_release: root.go_back()
-
         MDLabel:
             id: date_label
             text: "All Dates"
@@ -114,6 +108,6 @@
 
     MDFloatingActionButton:
         icon: "plus"
-        pos_hint: {"right": 0.98, "y": 0.02}
+        pos_hint: {"right": 0.95, "y": 0.10}
         on_release:
             root.show_add_expense()

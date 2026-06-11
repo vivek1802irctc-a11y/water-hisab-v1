@@ -2,6 +2,7 @@ from kivymd.uix.screen import MDScreen
 from database.db import db
 import shutil
 from pathlib import Path 
+from kivymd.toast import toast
 
 
 class SettingsScreen(MDScreen):
@@ -35,6 +36,7 @@ class SettingsScreen(MDScreen):
                 "DEFAULT RATE SAVED:",
                 rate
             )
+            toast("Default rate saved successfully")
 
         except Exception as e:
 
@@ -68,12 +70,16 @@ class SettingsScreen(MDScreen):
                 "BACKUP CREATED"
             )
 
+            toast("Backup created successfully")
+
         except Exception as e:
 
             print(
                 "BACKUP ERROR:",
                 e
             )
+            toast("Error creating backup")
+
     def import_backup(self):
 
         try:
@@ -91,6 +97,8 @@ class SettingsScreen(MDScreen):
                 print(
                     "BACKUP FILE NOT FOUND"
                 )
+                
+                toast("Backup file not found")
 
                 return
 
@@ -102,6 +110,7 @@ class SettingsScreen(MDScreen):
             print(
                 "BACKUP RESTORED"
             )
+            toast("Backup restored successfully")
 
         except Exception as e:
 
@@ -109,3 +118,4 @@ class SettingsScreen(MDScreen):
                 "IMPORT ERROR:",
                 e
             )
+            toast("Error restoring backup")

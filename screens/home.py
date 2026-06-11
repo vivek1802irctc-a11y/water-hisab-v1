@@ -102,8 +102,8 @@ class HomeScreen(MDScreen):
             btn = MDRaisedButton(
                 text=day_name,
                 disabled=True,
-                size_hint=(1, None),
-                height="35dp"
+                size_hint=(0.95, None),
+                height="32dp"
             )
 
             self.ids.calendar_grid.add_widget(
@@ -124,8 +124,8 @@ class HomeScreen(MDScreen):
                     text="",
                     disabled=True,
                     opacity=0,
-                    size_hint=(1, None),
-                    height="35dp"
+                    size_hint=(0.95, None),
+                    height="32dp"
                 )
             )
 
@@ -144,8 +144,8 @@ class HomeScreen(MDScreen):
 
                 btn = MDRaisedButton(
                     text=str(day.day),
-                    size_hint=(1, None),
-                    height="35dp"
+                    size_hint=(0.95, None),
+                    height="32dp"
                 )
 
                 current_date_str = (
